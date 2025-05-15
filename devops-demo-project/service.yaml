@@ -9,6 +9,7 @@ spec:
     app: demo-project
   ports:
     - protocol: TCP
-      port: 80        # External port exposed by service
-      targetPort: 9001  # Port on the pod container
-  type: LoadBalancer
+      port: 80          # Service port exposed inside the cluster
+      targetPort: 9001  # Container port your app listens on
+      nodePort: 30080   # NodePort in the range 30000-32767
+  type: NodePort
