@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops
+  name: demo-project
+  namespace: devops
   labels:
-    app: devops
+    app: demo-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: devops
+      app: demo-project
   template:
     metadata:
       labels:
-        app: devops
+        app: demo-project
     spec:
       containers:
-        - name: devops
+        - name: demo-project
           image: nizamsk/devops-integration:latest
           ports:
             - containerPort: 9001
